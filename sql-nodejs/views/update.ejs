@@ -1,0 +1,44 @@
+<!-- update.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Details</title>
+</head>
+
+<body>
+    <h1>Update Details</h1>
+    <form action="/update/<%= userId %>" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= userDetails.name || '' %>">
+        <br>
+        <label for="fatherName">Father Name:</label>
+        <input type="text" id="fatherName" name="fatherName" value="<%= userDetails.fatherName || '' %>">
+        <br>
+        <label for="motherName">Mother Name:</label>
+        <input type="text" id="motherName" name="motherName" value="<%= userDetails.motherName || '' %>">
+        <br>
+        <label for="houseNumber">House Number:</label>
+        <input type="text" id="houseNumber" name="houseNumber" value="<%= userDetails.houseNumber || '' %>">
+        <br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="<%= userDetails.city || '' %>">
+        <br>
+        <br>
+        <!-- <label>Existing User Image:</label> -->
+        <td><% if (userDetails.userimg) { %>
+                <img src="<%= userDetails.userimg %>" alt="Existing User Image" style="width:150px;">
+                <% } else { %>
+                    No Existing Image
+                    <% } %></td>
+                    <br>
+                    <label for="newUserImg">Choose to change Image:</label>
+<input type="file" id="newUserImg" name="newUserImg" accept="image/*">
+<br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+
+</html>

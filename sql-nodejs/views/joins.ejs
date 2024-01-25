@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joins Page</title>
+</head>
+<body>
+    <!-- Your joins.html content goes here -->
+    <h1>Joins Page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Mother Name</th>
+                <th>House Number</th>
+                <th>City</th>
+                <!-- <th>Img</th> -->
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach(result => { %>
+                <tr>
+                    <td><%= result.id %></td>
+                    <td><%= result.name %></td>
+                    <td><%= result.fatherName %></td>
+                    <td><%= result.motherName %></td>
+                    <td><%= result.houseNumber %></td>
+                    <td><%= result.city %></td>
+                    <!-- <td><%= result.userimg %></td> -->
+                    <td>
+                        <!-- Check if result.userimg is present before adding the image tag -->
+                        <% if (result.userimg) { %>
+                            <img src="<%= result.userimg %>" alt="User Image" style="width:150px;">
+                        <% } else { %>
+                             
+                        <% } %>
+                    </td>
+                    <td>
+                        <a href="/update/<%= result.id %>">Update Details</a>
+                    </td>
+                    <td>
+                        <a href="/delete/<%= result.id %>">Delete Details</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

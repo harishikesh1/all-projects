@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joins Page</title>
+</head>
+<body>
+    <!-- Your joins.html content goes here -->
+    <h1>Joins Page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th> Name</th>
+                <th>email</th>
+                <th>age</th>
+                <th>gender</th>
+                <th>username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach(results => { %>
+                <tr>
+                    <td><%= results.id %></td>
+                    <td><%= results.name %></td>
+                    <td><%= results.email %></td>
+                    <td><%= results.age %></td>
+                    <td><%= results.gender %></td>
+                    <td><%= results.username %></td>
+                    <td>
+                        <a href="/delete/<%= results.id %>">Delete User</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
